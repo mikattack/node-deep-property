@@ -1,7 +1,7 @@
 {
-  "name": "has-deep-property",
+  "name": "deep-property",
   "version": "1.0.0",
-  "description": "Test objects for deeply nested properties",
+  "description": "Fetch, set, and test deeply nested object properties",
   "main": "index.js",
   "devDependencies": {
     "tap": ">=0.4.12"
@@ -11,13 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mikattack/node-has-deep-property.git"
+    "url": "git://github.com/mikattack/node-deep-property.git"
   },
-  "homepage": "https://github.com/mikattack/node-has-deep-property",
+  "homepage": "https://github.com/mikattack/node-deep-property",
   "keywords": [
-    "property",
+    "accessor",
     "deep",
-    "object"
+    "dotpath",
+    "object",
+    "property",
+    "utility"
   ],
   "author": {
     "name": "Alex Mikitik"
