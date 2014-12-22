@@ -66,6 +66,43 @@ module.exports.set = function (obj, path, value) {
 
 
 /* 
+ * Removes a deeply nested property.
+ * 
+ * If an intermediate property of the specified path doesn't exist,
+ * we bail early.
+ * 
+ * Arguments:
+ * 
+ *     obj     Object to remove property from.
+ * 
+ *     path    [string] Dot-separated path specifier to nested
+ *             property to remove.  Array indexes are not supported.
+ *             Example: "contact.name.first".
+ *
+ * Returns:    [boolean] TRUE if property was removed, otherwise FALSE.
+ */
+module.exports.remove = function (obj, path) {
+  if (typeof obj === 'undefined' || typeof path === 'undefined') {
+    return false;
+  }
+  var tokens = parse(path);
+  for (var i = 0, len = tokens.length; i < len; i++) {
+    if (! obj || ! obj.hasOwnProperty(tokens[i])) {
+      return false;
+    }
+    if (i == (len - 1)) {
+      delete obj[tokens[i]];
+      return true;
+    } else {
+      obj = obj[tokens[i]];
+    }
+  }
+
+  return false
+};
+
+
+/* 
  * Detects whether a given object has a specified nested property.
  * 
  * Normal checks for deeply nested properties will throw an

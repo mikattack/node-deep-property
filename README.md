@@ -1,7 +1,7 @@
 # deep-property
 
 
-Enables deep property manipulation and inspection without worring about
+Enables deep property manipulation and inspection without worrying about
 exceptions.
 
 
@@ -20,15 +20,17 @@ props.set(sample, 'name.middle', 'C');
 props.set(sample, 'name.last', 'Reilly');
 props.set(sample, 'job.title', 'Actor');
 
-props.get(sample, 'name.first');  // John
-props.get(sample, 'name.middle'); // C
-props.get(sample, 'name.last');   // Reilly
-props.get(sample, 'job.title');   // Actor
+props.get(sample, 'name.first');     // John
+props.get(sample, 'name.middle');    // C
+props.get(sample, 'name.last');      // Reilly
+props.get(sample, 'job.title');      // Actor
 
-props.has(sample, 'name.first');  // True
-props.has(sample, 'name.title');  // False
-props.has(sample, 'job.title');   // True
-props.has(sample, 'job.salary');  // False
+props.remove(sample, 'name.middle'); // True
+
+props.has(sample, 'name.first');     // True
+props.has(sample, 'name.title');     // False
+props.has(sample, 'job.title');      // True
+props.has(sample, 'job.salary');     // False
 ```
 
 ```
@@ -36,7 +38,6 @@ props.has(sample, 'job.salary');  // False
 {
   name: {
     first:  'John',
-    middle: 'C',
     last:   'Reilly'
   },
   job: {
@@ -59,5 +60,6 @@ complex as necessary, with the following constraints and assumptions:
     - `get`: `undefined`
     - `set`: No values (including intermediates) set
     - `has`: `false`
+    - `remove`: `false`
 - Paths with blank sections (`path.to..nothing` or `path.to.nothing.`)
   will be considered invalid.
